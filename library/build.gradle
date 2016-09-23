@@ -35,7 +35,7 @@ android.libraryVariants.all { variant ->
     artifacts.add('archives', task);
 }
 
-apply from: '../maven_push.gradle'
+/*apply from: '../maven_push.gradle'
 
 afterEvaluate { project ->
     android.libraryVariants.all { variant ->
@@ -43,4 +43,4 @@ afterEvaluate { project ->
             classpath += files(variant.javaCompile.classpath.files)
         }
     }
-}
+}*/

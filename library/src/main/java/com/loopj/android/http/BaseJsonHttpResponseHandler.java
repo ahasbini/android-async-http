@@ -71,7 +71,7 @@ public abstract class BaseJsonHttpResponseHandler<JSON_TYPE> extends TextHttpRes
     public abstract void onFailure(int statusCode, Header[] headers, Throwable throwable, String rawJsonData, JSON_TYPE errorResponse);
 
     @Override
-    public final void onSuccess(final int statusCode, final Header[] headers, final String responseString) {
+    public void onSuccess(final int statusCode, final Header[] headers, final String responseString) {
         if (statusCode != HttpStatus.SC_NO_CONTENT) {
             Runnable parser = new Runnable() {
                 @Override
@@ -107,7 +107,7 @@ public abstract class BaseJsonHttpResponseHandler<JSON_TYPE> extends TextHttpRes
     }
 
     @Override
-    public final void onFailure(final int statusCode, final Header[] headers, final String responseString, final Throwable throwable) {
+    public void onFailure(final int statusCode, final Header[] headers, final String responseString, final Throwable throwable) {
         if (responseString != null) {
             Runnable parser = new Runnable() {
                 @Override

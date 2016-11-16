@@ -427,7 +427,7 @@ public class RequestParams implements Serializable {
         StringBuilder result = new StringBuilder();
         for (ConcurrentHashMap.Entry<String, String> entry : urlParams.entrySet()) {
             if (result.length() > 0)
-                result.append("&");
+                result.append("\n");
 
             result.append(entry.getKey());
             result.append("=");
@@ -436,7 +436,7 @@ public class RequestParams implements Serializable {
 
         for (ConcurrentHashMap.Entry<String, StreamWrapper> entry : streamParams.entrySet()) {
             if (result.length() > 0)
-                result.append("&");
+                result.append("\n");
 
             result.append(entry.getKey());
             result.append("=");
@@ -445,7 +445,7 @@ public class RequestParams implements Serializable {
 
         for (ConcurrentHashMap.Entry<String, FileWrapper> entry : fileParams.entrySet()) {
             if (result.length() > 0)
-                result.append("&");
+                result.append("\n");
 
             result.append(entry.getKey());
             result.append("=");
@@ -454,7 +454,7 @@ public class RequestParams implements Serializable {
 
         for (ConcurrentHashMap.Entry<String, List<FileWrapper>> entry : fileArrayParams.entrySet()) {
             if (result.length() > 0)
-                result.append("&");
+                result.append("\n");
 
             result.append(entry.getKey());
             result.append("=");
@@ -464,7 +464,7 @@ public class RequestParams implements Serializable {
         List<BasicNameValuePair> params = getParamsList(null, urlParamsWithObjects);
         for (BasicNameValuePair kv : params) {
             if (result.length() > 0)
-                result.append("&");
+                result.append("\n");
 
             result.append(kv.getName());
             result.append("=");

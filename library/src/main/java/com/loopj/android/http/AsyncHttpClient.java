@@ -341,6 +341,7 @@ public class AsyncHttpClient {
             } catch (Exception ex) {
                 // Should not really happen, added just for sake of validity
                 log.e(LOG_TAG, "getUrlWithQueryString encoding URL", ex);
+                throw new RuntimeException(ex);
             }
         }
 
@@ -666,10 +667,11 @@ public class AsyncHttpClient {
      * @see #setConnectTimeout(int)
      * @see #setResponseTimeout(int)
      */
-    public void setTimeout(int value) {
+    public AsyncHttpClient setTimeout(int value) {
         value = value < 1000 ? DEFAULT_SOCKET_TIMEOUT : value;
         setConnectTimeout(value);
         setResponseTimeout(value);
+        return this;
     }
 
     /**
